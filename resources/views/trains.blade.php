@@ -8,77 +8,27 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-    <header>
-        <h1>Trains</h1>
-    </header>
-    <main class="container">
-        @foreach ($data as $train)
-        <div class="card">
-            <div class="vote">
-                {{ $train->id_treno }} <i class="fa-solid fa-star"></i>
-            </div>
-            <h2>asdasd</h2>
-            <ul>
-               
-            </ul>
-        </div>
-        @endforeach
-    </main>
-    </body>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" >
+        
+        </head>
+        
+        <body>
+            <header>
+                <h1>Trains</h1>
+            </header>
+            <main class="container">
+                @foreach ($data as $train)
+                <div class="card">
+                    <div class="code">
+                        {{ $train->id_treno }} <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h2>{{ $train->stazione_partenza }} -> {{ $train->stazione_arrivo }}</h2>
+                    <ul>
+                        <li>Orario di partenza: {{ date("H:m:s" , strtotime($train->orario_partenza)) }} </li>
+                        <li>Orario di arrivo: {{ date("H:m:s" , strtotime($train->orario_arrivo)) }}</li>
+                    </ul>
+                </div>
+                @endforeach
+            </main>
+        </body>
 </html>

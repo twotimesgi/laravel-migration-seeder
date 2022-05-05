@@ -21,8 +21,8 @@ class Trains extends Migration
             $table->dateTime('orario_partenza', $precision = 0);
             $table->dateTime('orario_arrivo', $precision = 0);
             $table->string('id_treno',10);
-            $table->integer('n_carrozze');
-            $table->boolean('ritardo');
+            $table->tinyInteger('n_carrozze');
+            $table->tinyInteger('ritardo');
             $table->boolean('cancellato');
             $table->timestamps();
         });
