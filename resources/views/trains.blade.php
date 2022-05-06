@@ -30,5 +30,6 @@
                 </div>
                 @endforeach
             </main>
+            {{ $data->links() }}
         </body>
 </html>

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     function index(){
-        $data = Train::where('orario_partenza', 'LIKE', date('Y-m-d', time())."%")->get();
+        $data = Train::paginate(5);
         return view('trains', compact('data'));
     }
 }
